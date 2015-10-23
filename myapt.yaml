@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+  - name: copy sources.list
+    copy: src=/tmp/sources.list dest=/etc/apt/sources.list
+    when: ansible_lsb.id == "Debian"
+    notify: apt update
+
+  handlers:
+   - name: apt update
+     command: apt-get update
