@@ -1,0 +1,6 @@
+---
+- name: disable sudo requiretty
+  hosts: all
+  tasks:
+    - name: modify sudoers file for disable requiretty
+      template: src=template/disabletty.j2 dest=/etc/sudoers.d/disable-requiretty owner=root group=root mode=0440 validate="visudo -cf %s" backup=yes
