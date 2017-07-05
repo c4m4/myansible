@@ -1,0 +1,5 @@
+---
+
+- hosts: all
+  tasks:
+    - git: repo='https://github.com/ClusterLabs/pacemaker.git' dest='/home/pacemaker'
