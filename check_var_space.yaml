@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  gather_facts: yes
+
+  tasks:
+  - debug: msg='{{ item.mount }}'
+    with_items:
+    - '{{ ansible_mounts }}'
+    when: item.mount == '/var'
+    failed_when: item.size_total|int * 50 / 100 > item.size_available|int
