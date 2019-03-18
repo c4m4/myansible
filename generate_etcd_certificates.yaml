@@ -1,0 +1,19 @@
+---
+
+- hosts: localhost
+  gather_facts: yes
+  vars:
+    cert_path: "{{ lookup('env', 'PWD')}}"
+
+  tasks:
+  - openssl_privatekey:
+      path: "{{ cert_path }}/private.pem"
+  - openssl_csr:
+      path: "{{ cert_path }}/certicate.csr"
+      privatekey_path: "{{ cert_path }}/private.pem"
+      subject_alt_name: 'IP:127.0.0.1,IP:192.168.50.101,IP:192.168.50.102,IP:192.168.50.1'
+  - openssl_certificate:
+      path: "{{ cert_path }}/certificate.pem"
+      privatekey_path: "{{ cert_path }}/private.pem"
+      csr_path: "{{ cert_path }}/certicate.csr"
+      provider: selfsigned
