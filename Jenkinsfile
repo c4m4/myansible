@@ -1,1 +1,1 @@
-@Library('HelloWorld@master') _
+@Library('HelloWorld') _
