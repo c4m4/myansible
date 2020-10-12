@@ -1,1 +1,1 @@
-@Library('HelloWorld') _
+@Library('vars/HelloWorld') _
