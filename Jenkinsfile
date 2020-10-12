@@ -1,1 +1,1 @@
-@Library('awesome-lib') _
+@Library('awesome-lib@master') _
