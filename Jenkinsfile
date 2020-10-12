@@ -1,1 +1,1 @@
-@Library('vars/HelloWorld') _
+@Library('awesome-lib') _
